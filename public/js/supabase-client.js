@@ -6,9 +6,9 @@
    ============================================================ */
 
 // ↓ Set this to your Supabase Project URL (Dashboard → Settings → API → Project URL)
-const SUPABASE_URL  = 'https://YOUR_PROJECT_REF.supabase.co';
+const SUPABASE_URL  = 'https://fhgbinnbuaotthspuoed.supabase.co';
 // ↓ Replace with your publishable / anon key
-const SUPABASE_KEY  = 'sb_publishable_k-4meuDkhCyHmTQ5WuZdmw_GcVmlbgs';
+const SUPABASE_KEY  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZoZ2Jpbm5idWFvdHRoc3B1b2VkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY5NDYzNTcsImV4cCI6MjA5MjUyMjM1N30.6dI0r4hhjhytRIM0DOx38SSsJvR2XPucYzqJLWBAfSc';
 
 /* The global supabase object is provided by the CDN script loaded
    before this file in index.html. We alias it for convenience. */
