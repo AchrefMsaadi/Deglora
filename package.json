@@ -1,0 +1,12 @@
+{
+  "name": "deglora",
+  "version": "1.0.0",
+  "description": "Deglora — Premium Granola & Date Jam Website",
+  "private": true,
+  "engines": {
+    "node": ">=18.x"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.24.0"
+  }
+}
