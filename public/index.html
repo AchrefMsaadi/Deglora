@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deglora — Rooted in Nature. Powered by Intelligence.</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <!-- jsQR (QR code reading from image/camera) -->
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+</head>
+<body>
+
+  <!-- ============ LOADER ============ -->
+  <div id="loader">
+    <img src="assets/logo.png" alt="Deglora" class="loader-logo" />
+    <div class="loader-bar-track">
+      <div class="loader-bar-fill" id="loaderBarFill"></div>
+    </div>
+    <p class="loader-text">Crafting your experience…</p>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <div class="nav-logo-wrap">
+        <img src="assets/logo.png" alt="Deglora" />
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#concept">The Concept</a></li>
+      <li><a href="#customize">Customize</a></li>
+      <li><a href="#ai">AI Mix</a></li>
+      <li><a href="#product">Product</a></li>
+      <li><a href="#rewards">Rewards</a></li>
+    </ul>
+    <div class="nav-right">
+      <!-- Points chip — visible only when signed in -->
+      <div class="nav-points-chip" id="navPointsChip">
+        <span class="pts-star">⭐</span>
+        <span id="navPointsVal">0</span>
+        <span>pts</span>
+      </div>
+      <!-- Auth button toggles between Sign In / avatar -->
+      <button class="nav-auth-btn" id="navAuthBtn">Sign In</button>
+      <a href="#customize" class="nav-cta">Build Your Mix</a>
+      <button class="nav-burger" id="navBurger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section id="hero">
+    <div class="hero-bg">
+      <!-- Cinematic layered bg with CSS art -->
+      <div class="hero-grain"></div>
+      <div class="hero-gradient"></div>
+      <div class="hero-orb orb-1"></div>
+      <div class="hero-orb orb-2"></div>
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow" data-anim="fade-up">Tunisia · Est. 2024</p>
+      <h1 class="hero-headline">
+        <span class="line" data-anim="fade-up" data-delay="0.15">Rooted in Nature.</span>
+        <span class="line italic" data-anim="fade-up" data-delay="0.3">Powered by Intelligence.</span>
+      </h1>
+      <p class="hero-sub" data-anim="fade-up" data-delay="0.45">
+        Premium granola fused with Tunisian date jam — crafted for your unique biology.
+      </p>
+      <div class="hero-actions" data-anim="fade-up" data-delay="0.6">
+        <a href="#ai" class="btn btn-primary">Discover Your Mix</a>
+        <a href="#concept" class="btn btn-ghost">Our Story ↓</a>
+      </div>
+    </div>
+
+    <!-- Floating product visual -->
+    <div class="hero-product" data-anim="float-in" data-delay="0.5">
+      <div class="bottle-wrapper">
+        <div class="bottle">
+          <div class="bottle-body">
+            <div class="bottle-liquid"></div>
+            <div class="bottle-granola"></div>
+            <div class="bottle-label">
+              <span>DEGLORA</span>
+              <small>Original Blend</small>
+            </div>
+          </div>
+          <div class="bottle-cap"></div>
+          <div class="bottle-shadow"></div>
+        </div>
+        <div class="bottle-glow"></div>
+      </div>
+    </div>
+
+    <div class="scroll-hint" data-anim="fade-up" data-delay="1">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee-band">
+    <div class="marquee-track">
+      <span>Granola + Date Jam</span>
+      <span class="dot">◆</span>
+      <span>Tozeur, Tunisia</span>
+      <span class="dot">◆</span>
+      <span>AI Personalised</span>
+      <span class="dot">◆</span>
+      <span>Reusable Glass</span>
+      <span class="dot">◆</span>
+      <span>Zero Refined Sugar</span>
+      <span class="dot">◆</span>
+      <span>Granola + Date Jam</span>
+      <span class="dot">◆</span>
+      <span>Tozeur, Tunisia</span>
+      <span class="dot">◆</span>
+      <span>AI Personalised</span>
+      <span class="dot">◆</span>
+      <span>Reusable Glass</span>
+      <span class="dot">◆</span>
+      <span>Zero Refined Sugar</span>
+      <span class="dot">◆</span>
+    </div>
+  </div>
+
+  <!-- ============ CONCEPT ============ -->
+  <section id="concept" class="section">
+    <div class="section-inner two-col">
+      <div class="concept-text">
+        <p class="section-eyebrow reveal-text">The Concept</p>
+        <h2 class="section-title reveal-text">
+          Where ancient<br/><em>wisdom meets</em><br/>modern craft.
+        </h2>
+        <p class="section-body reveal-text">
+          From the sun-drenched oasis of Tozeur, we harvest Deglet Nour dates — 
+          the queen of dates. Slow-cooked into a velvety jam, it replaces every 
+          gram of refined sugar in our granola. The result? Pure, complex sweetness 
+          your body actually recognises.
+        </p>
+        <div class="concept-stats reveal-text">
+          <div class="stat">
+            <span class="stat-num">0g</span>
+            <span class="stat-label">Refined Sugar</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Natural Ingredients</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">∞</span>
+            <span class="stat-label">Reusable Packaging</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="concept-visual">
+        <div class="concept-card card-1 reveal-card">
+          <div class="card-img date-visual">
+            <div class="date-art">
+              <div class="date-shape"></div>
+              <div class="date-drip"></div>
+            </div>
+          </div>
+          <p>Deglet Nour Date Jam</p>
+          <small>Tozeur, Tunisia</small>
+        </div>
+        <div class="concept-card card-2 reveal-card">
+          <div class="card-img granola-visual">
+            <div class="granola-art">
+              <div class="g-cluster c1"></div>
+              <div class="g-cluster c2"></div>
+              <div class="g-cluster c3"></div>
+              <div class="g-cluster c4"></div>
+              <div class="g-cluster c5"></div>
+            </div>
+          </div>
+          <p>Rolled Oat Granola</p>
+          <small>Cold pressed, low heat</small>
+        </div>
+        <div class="concept-card card-3 reveal-card">
+          <div class="card-img bottle-visual">
+            <div class="mini-bottle"></div>
+          </div>
+          <p>Premium Glass Bottle</p>
+          <small>Infinitely reusable</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CUSTOMIZE ============ -->
+  <section id="customize" class="section section-dark">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal-text light">Customisation</p>
+      <h2 class="section-title light reveal-text">Build your<br/><em>perfect blend.</em></h2>
+      <p class="section-body light reveal-text">
+        Start with our granola + date jam base. Then choose your additions.
+      </p>
+
+      <div class="customize-ui">
+        <!-- Base -->
+        <div class="custom-base reveal-card">
+          <div class="base-icon">🌾</div>
+          <div>
+            <strong>Granola Base</strong>
+            <small>+ Deglet Nour Date Jam</small>
+          </div>
+          <div class="base-check">✓</div>
+        </div>
+
+        <!-- Add-ins grid -->
+        <div class="addins-grid" id="addinsGrid">
+          <div class="addin-card" data-id="chocolate" data-label="Dark Chocolate" data-emoji="🍫">
+            <div class="addin-emoji">🍫</div>
+            <span>Dark Chocolate</span>
+            <small>70% cacao</small>
+            <div class="addin-check"></div>
+          </div>
+          <div class="addin-card" data-id="honey" data-label="Wild Honey" data-emoji="🍯">
+            <div class="addin-emoji">🍯</div>
+            <span>Wild Honey</span>
+            <small>Raw & unfiltered</small>
+            <div class="addin-check"></div>
+          </div>
+          <div class="addin-card" data-id="nuts" data-label="Mixed Nuts" data-emoji="🥜">
+            <div class="addin-emoji">🥜</div>
+            <span>Mixed Nuts</span>
+            <small>Almonds, cashews, walnuts</small>
+            <div class="addin-check"></div>
+          </div>
+          <div class="addin-card" data-id="protein" data-label="Plant Protein" data-emoji="💪">
+            <div class="addin-emoji">💪</div>
+            <span>Plant Protein</span>
+            <small>+20g per serving</small>
+            <div class="addin-check"></div>
+          </div>
+          <div class="addin-card" data-id="coconut" data-label="Coconut Flakes" data-emoji="🥥">
+            <div class="addin-emoji">🥥</div>
+            <span>Coconut Flakes</span>
+            <small>Toasted & organic</small>
+            <div class="addin-check"></div>
+          </div>
+          <div class="addin-card" data-id="seeds" data-label="Super Seeds" data-emoji="🌻">
+            <div class="addin-emoji">🌻</div>
+            <span>Super Seeds</span>
+            <small>Chia, flax, hemp</small>
+            <div class="addin-check"></div>
+          </div>
+        </div>
+
+        <!-- Live preview bottle -->
+        <div class="blend-preview" id="blendPreview">
+          <div class="preview-bottle">
+            <div class="pb-cap"></div>
+            <div class="pb-body">
+              <div class="pb-label-area">
+                <span class="pb-brand">DEGLORA</span>
+                <span class="pb-blend-name" id="blendName">Original</span>
+              </div>
+              <div class="pb-fill" id="pbFill">
+                <div class="pb-base-layer"></div>
+                <div class="pb-addin-layers" id="pbAddinLayers"></div>
+              </div>
+            </div>
+            <div class="pb-shine"></div>
+          </div>
+          <div class="blend-summary" id="blendSummary">
+            <p>Your base blend is ready.</p>
+            <p class="blend-additions" id="blendAdditions"></p>
+          </div>
+          <button class="btn btn-primary mt-lg" id="orderBlendBtn">Order This Blend</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AI SECTION ============ -->
+  <section id="ai" class="section">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal-text">Intelligence</p>
+      <h2 class="section-title reveal-text">
+        Let AI craft<br/><em>your formula.</em>
+      </h2>
+      <p class="section-body reveal-text">
+        Answer 4 questions. Our AI analyses your goals and suggests the perfect blend — with a full nutritional rationale.
+      </p>
+
+      <div class="ai-flow" id="aiFlow">
+
+        <!-- Step 1 -->
+        <div class="ai-step active" id="step1">
+          <div class="step-header">
+            <span class="step-num">01</span>
+            <h3>What's your primary goal?</h3>
+          </div>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-val="fitness">🏋️ Build Fitness & Strength</button>
+            <button class="quiz-opt" data-val="focus">🧠 Boost Mental Focus</button>
+            <button class="quiz-opt" data-val="weightloss">⚖️ Manage Weight</button>
+            <button class="quiz-opt" data-val="energy">⚡ Sustained Energy</button>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="ai-step" id="step2">
+          <div class="step-header">
+            <span class="step-num">02</span>
+            <h3>How would you describe your lifestyle?</h3>
+          </div>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-val="active">🏃 Very Active (5+ workouts/week)</button>
+            <button class="quiz-opt" data-val="moderate">🚶 Moderately Active (2–4x/week)</button>
+            <button class="quiz-opt" data-val="sedentary">💼 Mostly Desk-based</button>
+            <button class="quiz-opt" data-val="recovering">🧘 Recovery / Low-impact</button>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="ai-step" id="step3">
+          <div class="step-header">
+            <span class="step-num">03</span>
+            <h3>Any dietary preferences?</h3>
+          </div>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-val="vegan">🌱 Vegan</button>
+            <button class="quiz-opt" data-val="vegetarian">🥗 Vegetarian</button>
+            <button class="quiz-opt" data-val="glutenfree">🌾 Gluten-Free</button>
+            <button class="quiz-opt" data-val="norestrictions">✅ No Restrictions</button>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="ai-step" id="step4">
+          <div class="step-header">
+            <span class="step-num">04</span>
+            <h3>When do you usually eat granola?</h3>
+          </div>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-val="breakfast">🌅 Breakfast</button>
+            <button class="quiz-opt" data-val="preworkout">🏋️ Pre-workout</button>
+            <button class="quiz-opt" data-val="snack">🕐 Afternoon Snack</button>
+            <button class="quiz-opt" data-val="evening">🌙 Evening</button>
+          </div>
+        </div>
+
+        <!-- Loading -->
+        <div class="ai-loading" id="aiLoading">
+          <div class="ai-brain">
+            <div class="brain-ring r1"></div>
+            <div class="brain-ring r2"></div>
+            <div class="brain-ring r3"></div>
+            <div class="brain-core">AI</div>
+          </div>
+          <p class="loading-text" id="loadingText">Analysing your profile…</p>
+        </div>
+
+        <!-- Result -->
+        <div class="ai-result" id="aiResult">
+          <div class="result-badge">✦ Your Formula</div>
+          <h3 class="result-name" id="resultName">—</h3>
+          <div class="result-mix" id="resultMix"></div>
+          <p class="result-explanation" id="resultExplanation"></p>
+          <div class="result-actions">
+            <button class="btn btn-primary" id="orderAiBtn">Order Your Formula</button>
+            <button class="btn btn-ghost" id="retakeBtn">Retake Quiz</button>
+          </div>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="quiz-progress" id="quizProgress">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <span class="progress-label" id="progressLabel">1 / 4</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRODUCT ============ -->
+  <section id="product" class="section section-cream">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal-text">The Product</p>
+      <h2 class="section-title reveal-text">Crafted to<br/><em>be kept.</em></h2>
+
+      <div class="product-showcase">
+
+        <div class="product-bottle-stage reveal-card">
+          <div class="showcase-bottle" id="showcaseBottle">
+            <div class="sb-outer-glow"></div>
+            <div class="sb-bottle">
+              <div class="sb-cap"></div>
+              <div class="sb-neck"></div>
+              <div class="sb-body">
+                <div class="sb-label">
+                  <img src="assets/logo.png" alt="Deglora" class="sb-logo" />
+                  <div class="sb-info">
+                    <span>Original Blend</span>
+                    <small>Granola + Date Jam</small>
+                  </div>
+                </div>
+                <div class="sb-fill"></div>
+                <div class="sb-bubbles">
+                  <div class="bubble b1"></div>
+                  <div class="bubble b2"></div>
+                  <div class="bubble b3"></div>
+                </div>
+              </div>
+              <div class="sb-base"></div>
+            </div>
+            <div class="sb-shadow"></div>
+          </div>
+        </div>
+
+        <div class="product-details">
+          <div class="product-feature reveal-card">
+            <div class="pf-icon">◈</div>
+            <div>
+              <strong>Premium Borosilicate Glass</strong>
+              <p>Heat-resistant, BPA-free, infinitely reusable. Designed to live on your countertop.</p>
+            </div>
+          </div>
+          <div class="product-feature reveal-card">
+            <div class="pf-icon">◈</div>
+            <div>
+              <strong>QR-Coded Cap</strong>
+              <p>Scan to earn loyalty points, trace your ingredients, and unlock sustainability data.</p>
+            </div>
+          </div>
+          <div class="product-feature reveal-card">
+            <div class="pf-icon">◈</div>
+            <div>
+              <strong>Mini Date Jam Bottle</strong>
+              <p>Each order includes a 60ml artisan date jam — your natural sugar alternative.</p>
+            </div>
+          </div>
+          <div class="product-feature reveal-card">
+            <div class="pf-icon">◈</div>
+            <div>
+              <strong>Sealed Freshness</strong>
+              <p>Airtight ceramic-coated lid keeps your blend fresh for up to 6 weeks.</p>
+            </div>
+          </div>
+
+          <div class="product-price reveal-card">
+            <div class="price-block">
+              <span class="price-from">From</span>
+              <span class="price-amount">29 TND</span>
+              <span class="price-note">/ 400g bottle</span>
+            </div>
+            <a href="#customize" class="btn btn-primary">Customise & Order</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REWARDS / QR ============ -->
+  <section id="rewards" class="section section-dark">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal-text light">Rewards</p>
+      <h2 class="section-title light reveal-text">Scan. Earn.<br/><em>Repeat.</em></h2>
+      <p class="section-body light reveal-text">
+        Every bottle has a unique QR code. Scan it to earn Degla Points, unlock traceability, and reduce waste.
+      </p>
+
+      <div class="rewards-flow">
+        <div class="reward-step reveal-card">
+          <div class="rs-num">01</div>
+          <div class="rs-icon">📱</div>
+          <h4>Scan Your Bottle</h4>
+          <p>Use any camera or the Deglora app to scan the QR on your cap.</p>
+        </div>
+        <div class="reward-arrow">→</div>
+        <div class="reward-step reveal-card">
+          <div class="rs-num">02</div>
+          <div class="rs-icon">⭐</div>
+          <h4>Earn Degla Points</h4>
+          <p>Each scan earns points. Bonus points for returning your bottle.</p>
+        </div>
+        <div class="reward-arrow">→</div>
+        <div class="reward-step reveal-card">
+          <div class="rs-num">03</div>
+          <div class="rs-icon">🎁</div>
+          <h4>Redeem Rewards</h4>
+          <p>Use points for discounts, free add-ins, or exclusive limited blends.</p>
+        </div>
+        <div class="reward-arrow">→</div>
+        <div class="reward-step reveal-card">
+          <div class="rs-num">04</div>
+          <div class="rs-icon">🌍</div>
+          <h4>Trace Your Blend</h4>
+          <p>See exactly where your dates were harvested and how your granola was made.</p>
+        </div>
+      </div>
+
+      <!-- Points counter demo -->
+      <div class="points-demo reveal-card">
+        <div class="points-card">
+          <div class="points-header">
+            <img src="assets/logo.png" alt="Deglora" class="points-logo" />
+            <div class="points-label">
+              <span>Your Degla Points</span>
+              <strong id="pointsCounter">0</strong>
+            </div>
+          </div>
+          <div class="points-bar-wrap">
+            <div class="points-bar-fill" id="pointsBarFill"></div>
+          </div>
+          <div class="points-next">
+            <span>120 pts until your next reward</span>
+            <span class="pts-badge">🎁 Free Add-in</span>
+          </div>
+        </div>
+        <button class="btn btn-primary" id="openQrDemo" style="margin-top:1.5rem;width:100%;justify-content:center;">
+          📱 Try QR Scan Demo
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ SUSTAINABILITY ============ -->
+  <section id="sustainability" class="section">
+    <div class="section-inner">
+      <div class="sustain-layout">
+        <div class="sustain-text">
+          <p class="section-eyebrow reveal-text">Origin & Soul</p>
+          <h2 class="section-title reveal-text">
+            From the palms<br/>of <em>Tozeur.</em>
+          </h2>
+          <p class="section-body reveal-text">
+            The Deglet Nour date — meaning "finger of light" — has grown in the 
+            Tozeur oasis for thousands of years. Harvested by hand every October, 
+            these dates carry a natural caramel sweetness unlike anything else 
+            on earth.
+          </p>
+          <p class="section-body reveal-text">
+            Our partnership with Tozeur farmers ensures fair wages, sustainable 
+            harvesting, and a direct supply chain with zero middlemen.
+          </p>
+          <div class="sustain-badges reveal-text">
+            <span class="badge">🌴 Sustainably Sourced</span>
+            <span class="badge">🤝 Fair Trade</span>
+            <span class="badge">♻️ Zero Waste Packaging</span>
+          </div>
+        </div>
+
+        <div class="sustain-visual reveal-card">
+          <div class="oasis-art">
+            <div class="sky"></div>
+            <div class="sand"></div>
+            <div class="palm p1">
+              <div class="palm-trunk"></div>
+              <div class="palm-fronds">
+                <div class="frond f1"></div>
+                <div class="frond f2"></div>
+                <div class="frond f3"></div>
+                <div class="frond f4"></div>
+                <div class="frond f5"></div>
+              </div>
+              <div class="dates-cluster"></div>
+            </div>
+            <div class="palm p2">
+              <div class="palm-trunk"></div>
+              <div class="palm-fronds">
+                <div class="frond f1"></div>
+                <div class="frond f2"></div>
+                <div class="frond f3"></div>
+              </div>
+              <div class="dates-cluster"></div>
+            </div>
+            <div class="oasis-label">Tozeur, Tunisia 34°N</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section id="how-it-works" class="section section-dark">
+    <div class="section-inner">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;">
+        <div>
+          <p class="section-eyebrow reveal-text light">The Process</p>
+          <h2 class="section-title light reveal-text">From palm tree<br/><em>to your table.</em></h2>
+          <p class="section-body light reveal-text">Every step of the Deglora journey is intentional — from hand-harvesting in Tozeur to your personalised bottle arriving at your door.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item reveal-card">
+            <div class="timeline-step">Step 01</div>
+            <div class="timeline-title">Hand-harvested in Tozeur</div>
+            <p class="timeline-desc">Every October, Deglet Nour dates are picked by hand from the palm groves of Southern Tunisia at peak ripeness.</p>
+          </div>
+          <div class="timeline-item reveal-card">
+            <div class="timeline-step">Step 02</div>
+            <div class="timeline-title">Slow-cooked into jam</div>
+            <p class="timeline-desc">The dates are stone-milled and slow-cooked at low temperature to preserve natural enzymes and complex flavours — no additives, ever.</p>
+          </div>
+          <div class="timeline-item reveal-card">
+            <div class="timeline-step">Step 03</div>
+            <div class="timeline-title">AI blends your formula</div>
+            <p class="timeline-desc">Our intelligence engine matches your biology, goals, and lifestyle to the ideal granola composition.</p>
+          </div>
+          <div class="timeline-item reveal-card">
+            <div class="timeline-step">Step 04</div>
+            <div class="timeline-title">Bottled & shipped to you</div>
+            <p class="timeline-desc">Your personalised blend is portioned into a premium borosilicate glass bottle and delivered within 48 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section id="testimonials" class="section">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal-text">Community</p>
+      <h2 class="section-title reveal-text">What our<br/><em>blenders say.</em></h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"I tried every granola on the market. Nothing compares to the depth of flavour you get from real date jam — it's a completely different experience."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">🧕</div>
+            <div class="author-info">
+              <strong>Yasmine B.</strong>
+              <span>Tunis · Fitness Coach</span>
+            </div>
+          </div>
+          <span class="testimonial-blend-tag">The Athlete Formula</span>
+        </div>
+        <div class="testimonial-card reveal-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"The AI recommendation actually nailed it. As a developer who skips breakfast, the Focus Formula keeps me sharp through morning standups."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">👨‍💻</div>
+            <div class="author-info">
+              <strong>Mehdi K.</strong>
+              <span>Sfax · Software Engineer</span>
+            </div>
+          </div>
+          <span class="testimonial-blend-tag">The Focus Formula</span>
+        </div>
+        <div class="testimonial-card reveal-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"The glass bottle is beautiful enough to live on my countertop. And the QR traceability — I can see exactly where my dates came from. That's rare."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">👩</div>
+            <div class="author-info">
+              <strong>Sarah M.</strong>
+              <span>Tunis · Nutritionist</span>
+            </div>
+          </div>
+          <span class="testimonial-blend-tag">The Vitality Formula</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA BANNER ============ -->
+  <section id="cta-banner">
+    <div class="cta-banner-inner">
+      <h2 class="reveal-text">Start your<br/><em>Deglora ritual.</em></h2>
+      <p class="reveal-text">Join 2,000+ people who've ditched refined sugar for something better.</p>
+      <form class="newsletter-form reveal-text" id="newsletterForm">
+        <input type="email" class="newsletter-input" placeholder="your@email.com" required />
+        <button type="submit" class="newsletter-submit">Get Early Access</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ CART BUTTON ============ -->
+  <button id="cartBtn" aria-label="Open cart">
+    <span class="cart-icon">🛒</span>
+    <span class="cart-badge" id="cartBadge">0</span>
+  </button>
+
+  <!-- ============ BACK TO TOP ============ -->
+  <button id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- ============ AUTH MODAL ============ -->
+  <div class="modal-overlay" id="authModal" style="align-items:center;justify-content:center;">
+    <div class="auth-panel" id="authPanel">
+      <div class="auth-header">
+        <img src="assets/logo.png" alt="Deglora" class="auth-logo" />
+        <button class="cart-close" id="authClose">✕</button>
+      </div>
+
+      <!-- Tab switcher -->
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="signin">Sign In</button>
+        <button class="auth-tab" data-tab="signup">Create Account</button>
+      </div>
+
+      <!-- Sign In Form -->
+      <div class="auth-form-wrap active" id="signinForm">
+        <h3 class="auth-title">Welcome back.</h3>
+        <p class="auth-sub">Sign in to access your blends, points & orders.</p>
+        <div class="auth-field">
+          <label>Email</label>
+          <input type="email" id="signinEmail" placeholder="you@example.com" autocomplete="email" />
+        </div>
+        <div class="auth-field">
+          <label>Password</label>
+          <input type="password" id="signinPassword" placeholder="••••••••" autocomplete="current-password" />
+        </div>
+        <div class="auth-error" id="signinError"></div>
+        <button class="auth-submit" id="signinBtn">
+          <span id="signinBtnText">Sign In</span>
+          <span class="auth-spinner" id="signinSpinner"></span>
+        </button>
+        <p class="auth-footnote">Don't have an account? <button class="auth-switch" data-to="signup">Create one</button></p>
+      </div>
+
+      <!-- Sign Up Form -->
+      <div class="auth-form-wrap" id="signupForm">
+        <h3 class="auth-title">Join Deglora.</h3>
+        <p class="auth-sub">Create your account and start earning Degla Points.</p>
+        <div class="auth-field">
+          <label>Full Name</label>
+          <input type="text" id="signupName" placeholder="Your name" autocomplete="name" />
+        </div>
+        <div class="auth-field">
+          <label>Email</label>
+          <input type="email" id="signupEmail" placeholder="you@example.com" autocomplete="email" />
+        </div>
+        <div class="auth-field">
+          <label>Password</label>
+          <input type="password" id="signupPassword" placeholder="Min. 8 characters" autocomplete="new-password" />
+        </div>
+        <div class="auth-error" id="signupError"></div>
+        <button class="auth-submit" id="signupBtn">
+          <span id="signupBtnText">Create Account</span>
+          <span class="auth-spinner" id="signupSpinner"></span>
+        </button>
+        <p class="auth-footnote">Already have an account? <button class="auth-switch" data-to="signin">Sign in</button></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ USER DROPDOWN ============ -->
+  <div class="user-dropdown" id="userDropdown">
+    <div class="ud-header">
+      <div class="ud-avatar" id="udAvatar">D</div>
+      <div class="ud-info">
+        <strong id="udName">—</strong>
+        <span id="udEmail">—</span>
+      </div>
+    </div>
+    <div class="ud-points-row">
+      <span>⭐ Degla Points</span>
+      <strong id="udPoints">0</strong>
+    </div>
+    <div class="ud-divider"></div>
+    <button class="ud-item" id="udOrdersBtn">📦 My Orders</button>
+    <button class="ud-item" id="udProfileBtn">👤 Profile</button>
+    <div class="ud-divider"></div>
+    <button class="ud-item ud-signout" id="udSignoutBtn">Sign Out</button>
+  </div>
+
+  <!-- ============ CART MODAL ============ -->
+  <div class="modal-overlay" id="cartModal">
+    <div class="cart-panel">
+      <div class="cart-header">
+        <h3>Your Blend Cart</h3>
+        <button class="cart-close" id="cartClose">✕</button>
+      </div>
+      <div class="cart-body" id="cartBody">
+        <div class="cart-empty" id="cartEmpty">
+          <div class="cart-empty-icon">🫙</div>
+          <p>Your cart is empty.</p>
+          <a href="#customize" class="btn btn-ghost" style="margin-top:1rem;color:var(--cream)">Build Your Mix</a>
+        </div>
+        <div id="cartItems"></div>
+      </div>
+      <div class="cart-footer" id="cartFooter" style="display:none">
+        <div class="cart-total">
+          <span>Total</span>
+          <div class="cart-total-price"><span id="cartTotalAmt">0</span> <small>TND</small></div>
+        </div>
+        <button class="cart-checkout-btn" id="checkoutBtn">Proceed to Checkout →</button>
+        <button class="cart-continue-btn" id="cartContinueBtn">Continue Shopping</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PAYMENT PAGE ============ -->
+  <div class="payment-overlay" id="paymentOverlay">
+    <div class="payment-page">
+      <div class="payment-header">
+        <button class="payment-back" id="paymentBack">← Back to Cart</button>
+        <img src="assets/logo.png" alt="Deglora" class="payment-logo" />
+        <div class="payment-secure">🔒 Secure Checkout</div>
+      </div>
+
+      <div class="payment-body">
+        <!-- Left: Forms -->
+        <div class="payment-forms">
+          <!-- Step indicators -->
+          <div class="payment-steps">
+            <div class="pstep active" data-step="1"><span>1</span> Shipping</div>
+            <div class="pstep-arrow">→</div>
+            <div class="pstep" data-step="2"><span>2</span> Payment</div>
+            <div class="pstep-arrow">→</div>
+            <div class="pstep" data-step="3"><span>3</span> Confirm</div>
+          </div>
+
+          <!-- STEP 1: Shipping -->
+          <div class="pform-step active" id="pStep1">
+            <h3 class="pform-title">Shipping Details</h3>
+            <div class="pform-row two">
+              <div class="pform-field">
+                <label>First Name *</label>
+                <input type="text" id="pfFirstName" placeholder="Ahmed" />
+              </div>
+              <div class="pform-field">
+                <label>Last Name *</label>
+                <input type="text" id="pfLastName" placeholder="Ben Ali" />
+              </div>
+            </div>
+            <div class="pform-field">
+              <label>Email Address *</label>
+              <input type="email" id="pfEmail" placeholder="you@example.com" />
+            </div>
+            <div class="pform-field">
+              <label>Phone Number *</label>
+              <input type="tel" id="pfPhone" placeholder="+216 XX XXX XXX" />
+            </div>
+            <div class="pform-field">
+              <label>Street Address *</label>
+              <input type="text" id="pfAddress" placeholder="12 Rue de Carthage" />
+            </div>
+            <div class="pform-row two">
+              <div class="pform-field">
+                <label>City *</label>
+                <input type="text" id="pfCity" placeholder="Tunis" />
+              </div>
+              <div class="pform-field">
+                <label>Postal Code *</label>
+                <input type="text" id="pfPostal" placeholder="1001" />
+              </div>
+            </div>
+            <div class="pform-field">
+              <label>Country</label>
+              <select id="pfCountry">
+                <option value="TN">Tunisia</option>
+                <option value="FR">France</option>
+                <option value="DE">Germany</option>
+                <option value="GB">United Kingdom</option>
+                <option value="AE">UAE</option>
+                <option value="SA">Saudi Arabia</option>
+              </select>
+            </div>
+            <div class="pform-field">
+              <label>Delivery Notes <small>(optional)</small></label>
+              <input type="text" id="pfNotes" placeholder="Apartment, floor, or any special instructions…" />
+            </div>
+            <div class="pform-error" id="pStep1Error"></div>
+            <button class="pform-next" id="pStep1Next">Continue to Payment →</button>
+          </div>
+
+          <!-- STEP 2: Payment -->
+          <div class="pform-step" id="pStep2">
+            <h3 class="pform-title">Payment Method</h3>
+            <div class="payment-methods">
+              <label class="pm-option active" data-method="card">
+                <input type="radio" name="payMethod" value="card" checked />
+                <div class="pm-content">
+                  <span class="pm-icon">💳</span>
+                  <div>
+                    <strong>Credit / Debit Card</strong>
+                    <small>Visa, Mastercard, Amex</small>
+                  </div>
+                </div>
+                <div class="pm-check">✓</div>
+              </label>
+              <label class="pm-option" data-method="cash">
+                <input type="radio" name="payMethod" value="cash" />
+                <div class="pm-content">
+                  <span class="pm-icon">💵</span>
+                  <div>
+                    <strong>Cash on Delivery</strong>
+                    <small>Pay when you receive</small>
+                  </div>
+                </div>
+                <div class="pm-check">✓</div>
+              </label>
+              <label class="pm-option" data-method="d17">
+                <input type="radio" name="payMethod" value="d17" />
+                <div class="pm-content">
+                  <span class="pm-icon">📱</span>
+                  <div>
+                    <strong>D17 / Flouci</strong>
+                    <small>Tunisian mobile payment</small>
+                  </div>
+                </div>
+                <div class="pm-check">✓</div>
+              </label>
+            </div>
+
+            <!-- Card fields (shown when card selected) -->
+            <div class="card-fields" id="cardFields">
+              <div class="pform-field">
+                <label>Card Number</label>
+                <input type="text" id="pfCardNum" placeholder="1234 5678 9012 3456" maxlength="19" />
+              </div>
+              <div class="pform-row two">
+                <div class="pform-field">
+                  <label>Expiry Date</label>
+                  <input type="text" id="pfExpiry" placeholder="MM / YY" maxlength="7" />
+                </div>
+                <div class="pform-field">
+                  <label>CVV</label>
+                  <input type="text" id="pfCvv" placeholder="123" maxlength="3" />
+                </div>
+              </div>
+              <div class="pform-field">
+                <label>Name on Card</label>
+                <input type="text" id="pfCardName" placeholder="AHMED BEN ALI" />
+              </div>
+            </div>
+
+            <!-- Redeem points -->
+            <div class="redeem-points-block" id="redeemBlock" style="display:none">
+              <div class="redeem-header">
+                <span>⭐ Use Degla Points</span>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="redeemToggle" />
+                  <span class="toggle-knob"></span>
+                </label>
+              </div>
+              <div class="redeem-info" id="redeemInfo">
+                You have <strong id="redeemPtsAvail">0</strong> pts — worth <strong id="redeemDiscount">0</strong> TND off
+              </div>
+            </div>
+
+            <div class="pform-error" id="pStep2Error"></div>
+            <div class="pstep-nav">
+              <button class="pform-back-btn" id="pStep2Back">← Back</button>
+              <button class="pform-next" id="pStep2Next">Review Order →</button>
+            </div>
+          </div>
+
+          <!-- STEP 3: Confirm -->
+          <div class="pform-step" id="pStep3">
+            <h3 class="pform-title">Order Review</h3>
+            <div class="confirm-summary" id="confirmSummary"></div>
+            <div class="confirm-shipping-summary" id="confirmShipping"></div>
+            <div class="pform-field" style="margin-top:1.5rem">
+              <label class="checkbox-label">
+                <input type="checkbox" id="termsCheck" />
+                <span>I agree to the <a href="#" style="color:var(--burgundy)">Terms & Conditions</a> and <a href="#" style="color:var(--burgundy)">Privacy Policy</a></span>
+              </label>
+            </div>
+            <div class="pform-error" id="pStep3Error"></div>
+            <div class="pstep-nav">
+              <button class="pform-back-btn" id="pStep3Back">← Back</button>
+              <button class="pform-next pform-place" id="placeOrderBtn">
+                <span id="placeOrderText">Place Order</span>
+                <span class="auth-spinner" id="placeSpinner"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Order Summary -->
+        <div class="payment-summary">
+          <h4 class="ps-title">Order Summary</h4>
+          <div class="ps-items" id="psSummaryItems"></div>
+          <div class="ps-divider"></div>
+          <div class="ps-row"><span>Subtotal</span><span id="psSubtotal">0 TND</span></div>
+          <div class="ps-row"><span>Shipping</span><span id="psShipping">7 TND</span></div>
+          <div class="ps-row discount-row" id="psDiscountRow" style="display:none">
+            <span>Points Discount</span><span id="psDiscount" style="color:#4caf50">-0 TND</span>
+          </div>
+          <div class="ps-divider"></div>
+          <div class="ps-row ps-total"><span>Total</span><span id="psTotal">0 TND</span></div>
+          <div class="ps-badge">🔒 256-bit SSL encryption</div>
+          <div class="ps-badge">🚚 Delivery in 48h</div>
+          <div class="ps-badge">♻️ Packaging 100% reusable</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ORDER SUCCESS MODAL ============ -->
+  <div class="order-modal-overlay" id="orderModal">
+    <div class="order-modal">
+      <div class="order-checkmark">✦</div>
+      <h3>Order Placed!</h3>
+      <p>Your personalised blend is being crafted in Tunis.<br/>Expected delivery: <strong style="color:var(--gold-light)">48 hours</strong>.</p>
+      <div class="order-pts-earned" id="orderPtsEarned">+50 Degla Points earned on this order</div>
+      <button class="order-close-btn" id="orderModalClose">Continue Shopping</button>
+    </div>
+  </div>
+
+  <!-- ============ QR MODAL (Camera + File Import) ============ -->
+  <div class="qr-modal-overlay" id="qrModal">
+    <div class="qr-modal">
+      <div class="qr-modal-header">
+        <h3>Scan Your Bottle</h3>
+        <button class="cart-close" id="qrModalClose">✕</button>
+      </div>
+
+      <!-- Tab bar -->
+      <div class="qr-tabs">
+        <button class="qr-tab active" data-qrtab="camera">📷 Camera</button>
+        <button class="qr-tab" data-qrtab="upload">📁 Import Image</button>
+        <button class="qr-tab" data-qrtab="demo">🔢 Demo Codes</button>
+      </div>
+
+      <!-- Camera tab -->
+      <div class="qr-tab-content active" id="qrTabCamera">
+        <div class="qr-video-wrap" id="qrVideoWrap">
+          <video id="qrVideo" autoplay playsinline muted></video>
+          <canvas id="qrCanvas" style="display:none"></canvas>
+          <div class="qr-scan-overlay">
+            <div class="qr-corner qr-corner-tl"></div>
+            <div class="qr-corner qr-corner-tr"></div>
+            <div class="qr-corner qr-corner-bl"></div>
+            <div class="qr-corner qr-corner-br"></div>
+            <div class="qr-scan-line"></div>
+          </div>
+        </div>
+        <p class="qr-camera-hint" id="qrCameraHint">Tap below to start your camera</p>
+        <button class="qr-action-btn" id="startCameraBtn">Start Camera</button>
+        <button class="qr-action-btn qr-stop-btn" id="stopCameraBtn" style="display:none">Stop Camera</button>
+      </div>
+
+      <!-- File upload tab -->
+      <div class="qr-tab-content" id="qrTabUpload">
+        <div class="qr-dropzone" id="qrDropzone">
+          <div class="qr-drop-icon">📷</div>
+          <p>Drop a QR code image here</p>
+          <small>or click to browse files</small>
+          <input type="file" id="qrFileInput" accept="image/*" style="position:absolute;inset:0;opacity:0;cursor:pointer;" />
+        </div>
+        <div class="qr-upload-preview" id="qrUploadPreview" style="display:none">
+          <img id="qrUploadImg" alt="Uploaded QR" />
+          <p id="qrUploadStatus">Analysing…</p>
+        </div>
+      </div>
+
+      <!-- Demo codes tab -->
+      <div class="qr-tab-content" id="qrTabDemo">
+        <p style="font-size:0.82rem;font-weight:300;color:rgba(245,245,220,0.5);margin-bottom:1.2rem;">
+          Tap a demo code to simulate a bottle scan:
+        </p>
+        <div class="qr-codes-list">
+          <button class="qr-code-btn" data-qr="DGL-001-ORIG">
+            <span>DGL-001 · Original Blend</span>
+            <span class="qr-pts-tag">+50 pts</span>
+          </button>
+          <button class="qr-code-btn" data-qr="DGL-002-FOCS">
+            <span>DGL-002 · Focus Formula</span>
+            <span class="qr-pts-tag">+50 pts</span>
+          </button>
+          <button class="qr-code-btn" data-qr="DGL-003-ATHL">
+            <span>DGL-003 · Athlete Formula</span>
+            <span class="qr-pts-tag">+50 pts</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Scan result (shared across tabs) -->
+      <div class="qr-scan-result" id="qrScanResult">
+        <div class="qr-result-title">✦ Bottle Verified</div>
+        <div class="qr-result-grid" id="qrResultGrid"></div>
+        <div class="qr-pts-flash" id="qrPtsFlash">
+          <span>⭐</span>
+          <span id="qrPtsMsg">+50 Degla Points earned!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap">
+          <img src="assets/logo.png" alt="Deglora" class="footer-logo" />
+        </div>
+        <p>Premium granola. Natural intelligence.<br/>Born in Tunisia.</p>
+      </div>
+      <div class="footer-links">
+        <div class="fl-col">
+          <h5>Product</h5>
+          <a href="#concept">The Concept</a>
+          <a href="#customize">Customise</a>
+          <a href="#product">Shop</a>
+        </div>
+        <div class="fl-col">
+          <h5>Experience</h5>
+          <a href="#ai">AI Blend</a>
+          <a href="#rewards">Rewards</a>
+          <a href="#sustainability">Origin</a>
+        </div>
+        <div class="fl-col">
+          <h5>Connect</h5>
+          <a href="#">Instagram</a>
+          <a href="#">TikTok</a>
+          <a href="#">hello@deglora.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Deglora. All rights reserved.</span>
+      <span>Made with ♥ in Tunisia</span>
+    </div>
+  </footer>
+
+  <!-- Scripts — order matters -->
+  <script src="js/supabase-client.js"></script>
+  <script src="js/loader.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/customize.js"></script>
+  <script src="js/ai-quiz.js"></script>
+  <script src="js/rewards.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/payment.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/qr-demo.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

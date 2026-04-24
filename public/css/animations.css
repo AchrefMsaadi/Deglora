@@ -1,0 +1,173 @@
+/* ============================================================
+   DEGLORA — animations.css
+   Entry animations, scroll reveals, GSAP-companion styles
+   ============================================================ */
+
+/* ============ REVEAL STATES (pre-animation) ============ */
+.reveal-text {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+.reveal-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+}
+.reveal-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-card:nth-child(2) { transition-delay: 0.1s; }
+.reveal-card:nth-child(3) { transition-delay: 0.2s; }
+.reveal-card:nth-child(4) { transition-delay: 0.3s; }
+
+/* ============ FLOAT ANIMATION ============ */
+.float-anim {
+  animation: float-gentle 5s ease-in-out infinite;
+}
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+/* ============ PAGE TRANSITION OVERLAY ============ */
+.page-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-dark);
+  z-index: 9990;
+  pointer-events: none;
+  opacity: 1;
+  transform-origin: top;
+}
+
+/* ============ PARALLAX LAYERS ============ */
+.parallax-slow { will-change: transform; }
+.parallax-fast { will-change: transform; }
+
+/* ============ HOVER LIFT ============ */
+.hover-lift {
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(114,47,55,0.2);
+}
+
+/* ============ GRADIENT TEXT ============ */
+.gradient-text {
+  background: linear-gradient(135deg, var(--burgundy), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============ ADDIN CARD RIPPLE ============ */
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(245,245,220,0.15);
+  transform: scale(0);
+  animation: ripple 0.5s linear;
+  pointer-events: none;
+}
+@keyframes ripple {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* ============ SECTION ENTRANCE LINE ============ */
+.section-line-reveal {
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--burgundy), transparent);
+  transition: width 1.2s var(--ease-out);
+}
+.section-line-reveal.visible { width: 80px; }
+
+/* ============ LOADING SHIMMER ============ */
+.shimmer {
+  background: linear-gradient(90deg,
+    rgba(245,245,220,0.04) 0%,
+    rgba(245,245,220,0.12) 50%,
+    rgba(245,245,220,0.04) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to { background-position: 200% 0; }
+}
+
+/* ============ NUMBER COUNT ANIMATION ============ */
+.count-up { font-variant-numeric: tabular-nums; }
+
+/* ============ MOBILE MENU ============ */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-dark);
+  z-index: 990;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  transform: translateX(100%);
+  transition: transform 0.4s var(--ease-out);
+}
+.mobile-menu.open { transform: translateX(0); }
+.mobile-menu a {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--cream);
+  opacity: 0.85;
+  letter-spacing: 0.05em;
+}
+.mobile-menu a:hover { opacity: 1; color: var(--gold-light); }
+.mobile-menu-close {
+  position: absolute;
+  top: 1.5rem; right: 2rem;
+  font-size: 1.5rem;
+  color: var(--cream);
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  opacity: 0.6;
+}
+
+/* ============ GSAP CLIP PATH STATES ============ */
+.clip-reveal {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.8s var(--ease-out);
+}
+.clip-reveal.visible { clip-path: inset(0 0% 0 0); }
+
+/* ============ MOBILE MENU EXTRAS ============ */
+.mobile-menu-divider {
+  width: 40px;
+  height: 1px;
+  background: rgba(245,245,220,0.12);
+  margin: 0.5rem auto;
+}
+.mobile-menu-signin {
+  background: transparent;
+  border: 1px solid rgba(201,168,76,0.4);
+  color: var(--gold-light);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  padding: 0.8rem 2rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  text-transform: uppercase;
+}
+.mobile-menu-signin:hover {
+  background: rgba(201,168,76,0.1);
+}
